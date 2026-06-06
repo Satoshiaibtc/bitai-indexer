@@ -21,8 +21,8 @@ values to derive the canonical state.
 | Constant            | Value                                                              |
 | ------------------- | ----------------------------------------------------------------- |
 | Chain               | Bitcoin **mainnet**                                                |
-| Genesis height      | `950382` — no operation below this height is indexed              |
-| Treasury address    | `bc1pkqxlx42eswn0dev5m4nmg26y0xyasmfx4jx53573kkttzvzs4nrqf4xt6t`   |
+| Genesis height      | `952595` — no operation below this height is indexed              |
+| Treasury address    | `bc1pfgtv6nsl7m2e3jefkmv968rrwqqpv22scwha224wq3ptyeaec2mqv9c98l`   |
 | Treasury fee        | `546` satoshis per protocol-relevant transaction                  |
 
 ## Token parameters

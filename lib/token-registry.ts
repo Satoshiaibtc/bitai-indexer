@@ -47,11 +47,9 @@ import { NETWORK } from "@scure/btc-signer/utils";
 // ── Consensus constants (mirror token_registry.rs) ──────────────────
 
 /** First block at which the BITAI protocol is considered live on
- *  mainnet. The previous pin (949_375) sat ~1000 blocks earlier than
- *  the first actual deploy, costing every fresh client ~7 hours of
- *  wasted scan time over blocks with zero BITAI activity. Pinning
- *  here at the height of the first observed deploy means new clients
- *  start scanning right where the action begins.
+ *  mainnet — the launch block. No DEPLOY/MINT/TRANSFER at or below
+ *  952_594 is in-protocol; clients start scanning here so they spend
+ *  zero time on pre-launch blocks with no BITAI activity.
  *
  *  Bumping this constant MUST be accompanied by a
  *  REGISTRY_SCHEMA_VERSION bump (below) so existing clients with a
@@ -60,9 +58,9 @@ import { NETWORK } from "@scure/btc-signer/utils";
  *  deserialise wipes the local blob and the next scan starts fresh
  *  from the new genesis.
  *
- *  Earlier pre-release pins (948_136, 948_948, 949_375) are
+ *  Earlier pre-release pins (948_136, 948_948, 949_375, 950_382) are
  *  explicitly NOT supported. */
-export const GENESIS_H0_MAINNET = 950_382;
+export const GENESIS_H0_MAINNET = 952_595;
 
 /** Max blocks back a mint's `challenge_h` may reference (≈24 h). Forces
  *  a recent BTC tip and prevents miners from precomputing a year of
@@ -92,8 +90,11 @@ export const DUST_SATS = 546;
  *    v1 — initial release, genesis pinned at #949_375
  *    v2 — genesis bumped to #950_382 (first observed deploy);
  *         every v1 client gets wiped on next load so the new scan
- *         doesn't try to resume from a now-pre-genesis height. */
-export const REGISTRY_SCHEMA_VERSION = 2;
+ *         doesn't try to resume from a now-pre-genesis height.
+ *    v3 — genesis re-anchored to launch block #952_595; every v2
+ *         client (and the indexer's persisted registry) gets wiped on
+ *         next load and re-derives from the new floor. */
+export const REGISTRY_SCHEMA_VERSION = 3;
 
 // ── Data types (mirror Rust structs) ────────────────────────────────
 

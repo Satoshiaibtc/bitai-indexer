@@ -18,7 +18,7 @@ import { GENESIS_H0_MAINNET } from "../lib/token-registry";
  *  the web client's deploy module — must stay in lockstep. */
 export const TREASURY_ADDRESS =
   process.env.BITAI_TREASURY ??
-  "bc1pkqxlx42eswn0dev5m4nmg26y0xyasmfx4jx53573kkttzvzs4nrqf4xt6t";
+  "bc1pfgtv6nsl7m2e3jefkmv968rrwqqpv22scwha224wq3ptyeaec2mqv9c98l";
 
 /** Protocol genesis — no DEPLOY/MINT/TRANSFER below this height is
  *  ever indexed. Imported from the web lib so the indexer and the
